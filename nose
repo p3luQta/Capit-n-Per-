@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Adivinanza para mancos como vos</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        h1 {
+            color: #534caf;
+        }
+        p {
+            color: #555555;
+        }
+        #guessInput {
+            padding: 8px;
+            margin: 10px;
+        }
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #output {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        #congratulations {
+            max-width: 100%;
+            height: 50%;
+            margin-top: 50px;
+            display: none; /* La imagen está oculta inicialmente */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Juego de Adivinanza Skibiridown</h1>
+    <p>Intenta adivinar el número entre 1 y 5:</p>
+    
+    <input type="number" id="guessInput">
+    <button onclick="checkGuess()">Click aquí down</button>
+    
+    <div id="output"></div>
+
+    <!-- Imagen de felicitaciones oculta inicialmente -->
+    <img id="congratulations" src="https://scontent-sea1-1.xx.fbcdn.net/v/t39.30808-6/414983853_329566389952527_1641052166929379285_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=c42490&_nc_eui2=AeGjRq5imt9WT46iQZ_EgM0oRKCrw0zWok5EoKvDTNaiTtnCpS3xEA7ib_fOAMzL3oXD4HjOPg60l98JoIfy6PoX&_nc_ohc=OJHG3_-8zyYAX9BjJsz&_nc_ht=scontent-sea1-1.xx&oh=00_AfDbFlEfFZ_wLAQ7P_r07fGpFvQWZ4efSlttvTMiNcz06g&oe=6592009A" alt="Felicitaciones">
+
+    <script>
+        const randomNumber = Math.floor(Math.random() * 10) + 1;
+        let attempts = 0;
+
+        function checkGuess() {
+            const userGuess = document.getElementById("guessInput").value;
+            attempts++;
+
+            if (userGuess == randomNumber) {
+                document.getElementById("output").innerHTML = `¡Correcto! Adivinaste en ${attempts} intentos.`;
+                document.getElementById("congratulations").style.display = "block"; // Mostrar la imagen de felicitaciones
+            } else {
+                document.getElementById("output").innerHTML = "Incorrecto, qué down";
+            }
+        }
+    </script>
+
+</body>
+</html>
